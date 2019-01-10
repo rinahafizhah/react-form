@@ -5,7 +5,7 @@ import { Button } from "reactstrap";
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./Home";
-
+import About from "./About";
 const Container = styled.div`
   background-color: #e1e3de;
 `;
@@ -21,7 +21,9 @@ class App extends Component {
             <TodoApp />
           </Container>
           <Route path="/" exact component={Home} />
+          <Route path="/About" component={About} />
           <Link to="/">Home</Link>
+          <Link to="/About">About</Link>
         </div>
       </Router>
     );
