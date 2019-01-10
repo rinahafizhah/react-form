@@ -6,12 +6,8 @@ class TodoApp extends Component {
 
     this.state = {
       input: "",
-      todos: [
-        {
-          id: 0,
-          text: "Sample todo"
-        }
-      ]
+      latestId: 0,
+      todos: []
     };
   }
 
@@ -21,10 +17,10 @@ class TodoApp extends Component {
 
   handleTodoSubmit = event => {
     event.preventDefault();
-    console.log("TODO SUBMITTED!", this.state.input);
 
+    const latestId = this.state.latestId;
     const newTodo = {
-      id: this.state.todos.length,
+      id: latestId,
       text: this.state.input
     };
 
@@ -32,11 +28,35 @@ class TodoApp extends Component {
 
     this.setState({
       input: "",
+      latestId: latestId + 1,
+      todos: newTodos
+    });
+  };
+
+  removeTodo = indexToRemove => {
+    const newTodos = this.state.todos.filter((todo, index) => {
+      return index !== indexToRemove;
+    });
+
+    this.setState({
       todos: newTodos
     });
   };
 
   render() {
+    const todoList = this.state.todos.map((todo, index) => {
+      return (
+        <li key={index}>
+          {todo.id}:{todo.text}{" "}
+          <input
+            type="button"
+            value="Remove"
+            onClick={() => this.removeTodo(index)}
+          />
+        </li>
+      );
+    });
+
     return (
       <div>
         <h1>Todo App</h1>
@@ -48,15 +68,7 @@ class TodoApp extends Component {
           />
           <input type="submit" value="Add Todo" />
         </form>
-        <ul>
-          {this.state.todos.map((todo, index) => {
-            return (
-              <li key={index}>
-                {todo.id}:{todo.text}
-              </li>
-            );
-          })}
-        </ul>
+        <ul>{todoList}</ul>
       </div>
     );
   }
