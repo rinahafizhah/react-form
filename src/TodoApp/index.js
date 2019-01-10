@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Form = styled.form`
-display: flex;
-align-items: center;
-flex-direction: row;
-margin: 15px 0;
-`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 15px 0;
+`;
 
 const Title = styled.h1`
-  color: rgb(0, 0, 255)
-`
+  color: rgb(0, 0, 255);
+`;
 
 const Container = styled.div`
-display: flex;
-align-items: center;
-flex-direction: column;
-`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const Textarea = styled.input`
-border : 3px solid blue;
-border-radius: 10px;
-padding: 10px;
-width: 500px;
-`
+  border: 3px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+  width: 500px;
+`;
 const Button = styled.input`
   background-color: rgb(152, 212, 243);
   border: 3px solid #6f7375;
@@ -41,7 +41,7 @@ const Remove = styled.input`
 
 const Listtodo = styled.ul`
   list-syle: none;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   margin-top: -1px;
   line-height: 2;
   padding: 2px 20px;
